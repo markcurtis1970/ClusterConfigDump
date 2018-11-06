@@ -39,9 +39,9 @@ public class ClusterObjectDiag {
      * Call this method with your cluster object to
      * run the check
      *
-     * @param cluster
+     * @param cluster - Cluster object
      */
-    public void runCheck(Cluster cluster) {
+    public static void runCheck(Cluster cluster) {
         System.out.println("\n=== Cluster config for " + cluster.getMetadata().getClusterName() + " ===\n");
         dumpClass(cluster.getConfiguration(), 1);
     }
@@ -50,10 +50,10 @@ public class ClusterObjectDiag {
     /**
      * Dump the cluster object and all its values to stdout
      *
-     * @param obj
-     * @param level
+     * @param obj - cluster object
+     * @param level - level (integer)
      */
-    private void dumpClass(Object obj, int level) {
+    private static void dumpClass(Object obj, int level) {
         String ident = Strings.repeat(" ", level);
 
         for (Method method : obj.getClass().getMethods()) {

@@ -2,15 +2,11 @@ import com.datastax.driver.dse.DseCluster;
 import com.datastax.driver.dse.DseSession;
 
 public class TestClusterObjectDiag {
-    // Constructor
-    public TestClusterObjectDiag() {
-    }
 
     static TestClusterObjectDiag testclusterdiag = new TestClusterObjectDiag();
-    static ClusterObjectDiag clusterObjectDiag = new ClusterObjectDiag();
 
     // main class just for kicking things off
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
         testclusterdiag.runCheck();
     }
 
@@ -24,7 +20,7 @@ public class TestClusterObjectDiag {
             DseSession session = cluster.connect();
 
             // Now pass the cluster oject for diag checks
-            clusterObjectDiag.runCheck(cluster);
+            ClusterObjectDiag.runCheck(cluster);
 
         } finally {
             if (cluster != null) cluster.close();
